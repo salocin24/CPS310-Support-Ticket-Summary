@@ -31,8 +31,11 @@ def load_tickets(filename):
 
 def count_status(tickets, status):
     """Count tickets that match the requested status."""
-    return len(tickets)
-
+    return sum(
+        1
+        for ticket in tickets
+        if ticket["status"].lower() == status.lower()
+    )
 
 def count_priority(tickets, priority):
     """Count tickets that match the requested priority."""
